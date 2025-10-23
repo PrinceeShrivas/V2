@@ -1,0 +1,4 @@
+studentID,password,name,email,gpa,state,degree,aboutMe,annualIncome,seekingSponsorship
+"rajbeer","rajbeer123","raj","raj",5,"del","btech","hello",1000,1
+"john","john123","John Doe","john@email.com",8.5,"Tamil Nadu","Computer Science","I am a passionate CS student from a rural background. Despite financial challenges, I have maintained a strong GPA and dream of becoming a software engineer to help my family.",50000,1
+"priya","priya123","Priya Kumar","priya@email.com",9,"Karnataka","Medicine","Coming from a farmer's family, I aspire to become a doctor and serve rural communities. Education is my path to making a difference in healthcare access.",40000,1
