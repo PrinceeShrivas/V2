@@ -1,0 +1,38 @@
+[
+  {
+    "aboutMe": "hello",
+    "annualIncome": 1000.0,
+    "degree": "btech",
+    "email": "raj@email.com",
+    "gpa": 6.0,
+    "name": "raj singh",
+    "password": "raj123",
+    "seekingSponsorship": true,
+    "state": "del",
+    "studentID": "raj"
+  },
+  {
+    "aboutMe": "Coming from a farmer's family, I aspire to become a doctor and serve rural communities. Education is my path to making a difference in healthcare access.",
+    "annualIncome": 40000.0,
+    "degree": "Medicine",
+    "email": "priya@email.com",
+    "gpa": 9.0,
+    "name": "Priya Kumar",
+    "password": "priya123",
+    "seekingSponsorship": true,
+    "state": "Karnataka",
+    "studentID": "priya"
+  },
+  {
+    "aboutMe": "I am a passionate CS student from a rural background. Despite financial challenges, I have maintained a strong GPA and dream of becoming a software engineer to help my family.",
+    "annualIncome": 50000.0,
+    "degree": "Computer Science",
+    "email": "john@email.com",
+    "gpa": 8.5,
+    "name": "John Doe",
+    "password": "john123",
+    "seekingSponsorship": true,
+    "state": "Tamil Nadu",
+    "studentID": "john"
+  }
+]

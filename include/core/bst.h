@@ -11,7 +11,6 @@ struct BSTNode
     BSTNode *left, *right;
     BSTNode(const Scholarship &s);
 };
-
 struct IDListNode
 {
     int scholarshipID;

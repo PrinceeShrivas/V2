@@ -1,0 +1,18 @@
+[
+  {
+    "password": "pass1",
+    "scholarshipIDs": [
+      4
+    ],
+    "uploaderID": "user1"
+  },
+  {
+    "password": "adminpw",
+    "scholarshipIDs": [
+      3,
+      2,
+      1
+    ],
+    "uploaderID": "admin"
+  }
+]

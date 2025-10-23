@@ -1,5 +1,0 @@
-id,title,provider,amount,minGPA,annualIncome,degreeOrSchool,category,state,uploaderID,contactInfo,description,endDate
-4,"prince","prince",10,10,100,"btech","sc","delhi","user1","delhi","delhi","2025-02-02"
-2,"Arts Support","Arts Council",20000,8,100000,"school","SC","Delhi","admin","arts@support.org","Grants for arts students.","2025-11-30"
-1,"Mahindra Excellence","Mahindra Foundation",50000,8.5,100000,"degree","OPEN","Tamil Nadu","admin","contact@mh.org","Support for students which are underprivileged.","2025-12-31"
-3,"Merit Grant","Merit Foundation",300000,9.5,120000,"Any","General","Jharkhand","admin","info@merit.org","Merit-based scholarship.","2025-10-15"

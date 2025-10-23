@@ -1,0 +1,62 @@
+[
+  {
+    "amount": 1000.0,
+    "annualIncome": 1000.0,
+    "category": "sc",
+    "contactInfo": "sk",
+    "degreeOrSchool": "btech",
+    "description": "hell",
+    "endDate": "2025-02-02",
+    "id": 4,
+    "minGPA": 10.0,
+    "provider": "prince",
+    "state": "del",
+    "title": "prince",
+    "uploaderID": "user1"
+  },
+  {
+    "amount": 20000.0,
+    "annualIncome": 100000.0,
+    "category": "SC",
+    "contactInfo": "arts@support.org",
+    "degreeOrSchool": "school",
+    "description": "Grants for arts students.",
+    "endDate": "2025-11-30",
+    "id": 2,
+    "minGPA": 8.0,
+    "provider": "Arts Council",
+    "state": "Delhi",
+    "title": "Arts Support",
+    "uploaderID": "admin"
+  },
+  {
+    "amount": 50000.0,
+    "annualIncome": 100000.0,
+    "category": "OPEN",
+    "contactInfo": "contact@mh.org",
+    "degreeOrSchool": "degree",
+    "description": "Support for students which are underprivileged.",
+    "endDate": "2025-12-31",
+    "id": 1,
+    "minGPA": 8.5,
+    "provider": "Mahindra Foundation",
+    "state": "Tamil Nadu",
+    "title": "Mahindra Excellence",
+    "uploaderID": "admin"
+  },
+  {
+    "amount": 300000.0,
+    "annualIncome": 120000.0,
+    "category": "General",
+    "contactInfo": "info@merit.org",
+    "degreeOrSchool": "Any",
+    "description": "Merit-based scholarship.",
+    "endDate": "2025-10-15",
+    "id": 3,
+    "minGPA": 9.5,
+    "provider": "Merit Foundation",
+    "state": "Jharkhand",
+    "title": "Merit Grant",
+    "uploaderID": "admin"
+  }
+]
