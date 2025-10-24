@@ -17,7 +17,6 @@ struct IDListNode
     IDListNode *next;
     IDListNode(int id);
 };
-
 struct ResultList
 {
     IDListNode *head;
@@ -34,10 +33,7 @@ BSTNode *insertBST(BSTNode *node, const Scholarship &s);
 void inorderTraverse(BSTNode *node, function<void(const Scholarship &)> f);
 BSTNode *findByID(BSTNode *node, int id);
 BSTNode *deleteByKey(BSTNode *node, double amount, int id);
-
 void collectIf(BSTNode *node, ResultList &res, function<bool(const Scholarship &)> pred);
 void printResultList(ResultList &r);
-
 void cleanupBST(BSTNode *node);
-
 #endif
