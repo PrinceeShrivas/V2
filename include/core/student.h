@@ -1,6 +1,5 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -17,7 +16,6 @@ struct Student
     string aboutMe;
     double annualIncome;
     bool seekingSponsorship;
-
     Student() = default;
     Student(const string &id, const string &n, const string &em,
             double g, const string &st, const string &deg,
@@ -50,5 +48,4 @@ bool createSponsorship(const string &uploaderID, const string &studentID, const 
 void viewSponsoredStudents(const string &uploaderID);
 void viewMySponsors(const string &studentID);
 void cleanupStudents();
-
 #endif
