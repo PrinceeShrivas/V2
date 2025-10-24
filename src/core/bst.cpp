@@ -6,9 +6,7 @@ BSTNode *root = nullptr;
 int nextScholarshipID = 1;
 
 BSTNode::BSTNode(const Scholarship &s) : data(s), left(nullptr), right(nullptr) {}
-
 IDListNode::IDListNode(int id) : scholarshipID(id), next(nullptr) {}
-
 ResultList::ResultList() : head(nullptr) {}
 
 void ResultList::pushFront(int id)
@@ -17,7 +15,6 @@ void ResultList::pushFront(int id)
     n->next = head;
     head = n;
 }
-
 void ResultList::clear()
 {
     IDListNode *cur = head;
@@ -29,7 +26,6 @@ void ResultList::clear()
     }
     head = nullptr;
 }
-
 ResultList::~ResultList() { clear(); }
 
 BSTNode *insertBST(BSTNode *node, const Scholarship &s)
@@ -48,9 +44,7 @@ void inorderTraverse(BSTNode *node, function<void(const Scholarship &)> f)
 {
     if (!node)
         return;
-    inorderTraverse(node->left, f);
-    f(node->data);
-    inorderTraverse(node->right, f);
+    inorderTraverse(node->left, f),f(node->data),inorderTraverse(node->right, f);
 }
 
 BSTNode *findByID(BSTNode *node, int id)
