@@ -6,8 +6,6 @@ string toLower(const string &s)
 {
     string r = s;
     for (char &c : r)
-    {
         c = tolower(c);
-    }
     return r;
 }
