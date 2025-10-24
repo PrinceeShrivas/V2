@@ -129,12 +129,10 @@ void printResultList(ResultList &r)
         cur = cur->next;
     }
 }
-
 void cleanupBST(BSTNode *node)
 {
     if (!node)
         return;
-    cleanupBST(node->left);
-    cleanupBST(node->right);
+    cleanupBST(node->left),cleanupBST(node->right);
     delete node;
 }
