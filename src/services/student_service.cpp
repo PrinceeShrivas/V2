@@ -169,7 +169,6 @@ void studentProfileMenu(const string &studentID)
         cout << "3. View my sponsors\n";
         cout << "0. Back\n";
         int ch = readInt("Choice: ", true);
-
         if (ch == 0)
             break;
         else if (ch == 1)
@@ -191,18 +190,14 @@ void studentMenuLoop()
     cout << "2. Browse as Guest\n";
     cout << "0. Back\n";
     int choice = readInt("Choice: ", true);
-
     if (choice == 0)
         return;
-
     string studentID = "";
     bool loggedIn = false;
-
     if (choice == 1)
     {
         studentID = readNonEmptyLine("Enter Student ID: ");
         string sid = toLower(studentID);
-
         if (students.find(sid) == students.end())
         {
             cout << "Student not found. Would you like to create a profile? (1=Yes, 0=No): ";
@@ -226,7 +221,6 @@ void studentMenuLoop()
             }
         }
     }
-
     while (true)
     {
         cout << "\n=== Student Menu ===\n";
@@ -234,15 +228,12 @@ void studentMenuLoop()
         cout << "2. Search scholarships\n";
         cout << "3. Sort scholarships\n";
         cout << "4. Filter scholarships\n";
-
         if (loggedIn)
         {
             cout << "5. My Profile\n";
         }
-
         cout << "0. Back\n";
         int ch = readInt("Choice: ", true);
-
         if (ch == 0)
             break;
         else if (ch == 1)
