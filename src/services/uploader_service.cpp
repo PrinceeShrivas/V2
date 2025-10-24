@@ -53,52 +53,39 @@ void uploaderUpdateScholarship(const string &uploaderID)
         cout << "You can only update scholarships uploaded by you.\n";
         return;
     }
+    
     printScholarshipDetail(node->data);
-    cout << "Enter new values or leave blank to keep current.\n";
+    cout << "\nEnter new values or leave blank to keep current.\n\n";
+    cout << "Title [" << node->data.title << "]: " << flush;
     string title = readLineTrim();
-    if (title.empty())
-        cout << "Keeping current title.\n";
+    cout << "Provider [" << node->data.provider << "]: " << flush;
     string provider = readLineTrim();
-    if (provider.empty())
-        cout << "Keeping current provider.\n";
-    cout << "New Amount (or blank): " << flush;
-    string sAmount;
-    getline(cin, sAmount);
-    cout << "New Min GPA (or blank): " << flush;
-    string sGpa;
-    getline(cin, sGpa);
-    cout << "New Max Annual Income (or blank): " << flush;
-    string sIncome;
-    getline(cin, sIncome);
+    cout << "Amount [" << node->data.amount << "]: " << flush;
+    string sAmount = readLineTrim();
+    cout << "Min GPA [" << node->data.minGPA << "]: " << flush;
+    string sGpa = readLineTrim();
+    cout << "Max Annual Income [" << node->data.annualIncome << "]: " << flush;
+    string sIncome = readLineTrim();
+    cout << "Degree/School [" << node->data.degreeOrSchool << "]: " << flush;
     string degreeOrSchool = readLineTrim();
-    if (degreeOrSchool.empty())
-        cout << "Keeping current degree/school.\n";
+    cout << "Category [" << node->data.category << "]: " << flush;
     string category = readLineTrim();
-    if (category.empty())
-        cout << "Keeping current category.\n";
+    cout << "State [" << node->data.state << "]: " << flush;
     string state = readLineTrim();
-    if (state.empty())
-        cout << "Keeping current state.\n";
+    cout << "Contact Info [" << node->data.contactInfo << "]: " << flush;
     string contact = readLineTrim();
-    if (contact.empty())
-        cout << "Keeping current contact info.\n";
+    cout << "Description [" << node->data.description.substr(0, min(size_t(50), node->data.description.length())) << "...]: " << flush;
     string description = readLineTrim();
-    if (description.empty())
-        cout << "Keeping current description.\n";
+    cout << "End Date (YYYY-MM-DD) [" << node->data.endDate << "]: " << flush;
     string endDate = readLineTrim();
     if (!endDate.empty() && !isValidDateFormat(endDate))
     {
         cout << "Invalid date format. Keeping current end date.\n";
-        endDate = node->data.endDate;
+        endDate = "";
     }
-    else if (endDate.empty())
-    {
-        cout << "Keeping current end date.\n";
-    }
-
+    // Create updated scholarship with validation
     Scholarship updated = node->data;
-    bool isValid = true;
-
+    bool amountChanged = false;
     if (!title.empty())
         updated.title = title;
     if (!provider.empty())
@@ -111,17 +98,17 @@ void uploaderUpdateScholarship(const string &uploaderID)
             if (newAmount < 0)
             {
                 cout << "Amount cannot be negative. Keeping old amount.\n";
-                isValid = false;
             }
             else
             {
+                if (newAmount != node->data.amount)
+                    amountChanged = true;
                 updated.amount = newAmount;
             }
         }
         catch (...)
         {
             cout << "Invalid amount input; keeping old.\n";
-            isValid = false;
         }
     }
     if (!sGpa.empty())
@@ -132,7 +119,6 @@ void uploaderUpdateScholarship(const string &uploaderID)
             if (newGpa < 0)
             {
                 cout << "GPA cannot be negative. Keeping old GPA.\n";
-                isValid = false;
             }
             else
             {
@@ -142,7 +128,6 @@ void uploaderUpdateScholarship(const string &uploaderID)
         catch (...)
         {
             cout << "Invalid GPA input; keeping old.\n";
-            isValid = false;
         }
     }
     if (!sIncome.empty())
@@ -153,7 +138,6 @@ void uploaderUpdateScholarship(const string &uploaderID)
             if (newIncome < 0)
             {
                 cout << "Annual income cannot be negative. Keeping old income.\n";
-                isValid = false;
             }
             else
             {
@@ -163,7 +147,6 @@ void uploaderUpdateScholarship(const string &uploaderID)
         catch (...)
         {
             cout << "Invalid income input; keeping old.\n";
-            isValid = false;
         }
     }
     if (!degreeOrSchool.empty())
@@ -178,27 +161,20 @@ void uploaderUpdateScholarship(const string &uploaderID)
         updated.description = description;
     if (!endDate.empty())
         updated.endDate = endDate;
-
-    if (isValid && updated.amount != node->data.amount)
+    if (amountChanged)     // If amount changed, need to reinsert in BST
     {
         root = deleteByKey(root, node->data.amount, node->data.id);
         root = insertBST(root, updated);
-        cout << "Updated scholarship (amount changed, reinserted).\n";
-    }
-    else if (isValid)
-    {
-        node->data = updated;
-        cout << "Updated scholarship in place.\n";
+        cout << "\nUpdated scholarship (amount changed, reinserted in BST).\n";
     }
     else
     {
-        cout << "Update partially applied due to invalid inputs.\n";
+        node->data = updated;
+        cout << "\nUpdated scholarship in place.\n";
     }
-
     cout << "\n--- Updated Scholarship Details ---\n";
     printScholarshipDetail(updated);
 }
-
 void uploaderDeleteScholarship(const string &uploaderID)
 {
     cout << "\n--- Delete Scholarship ---\n";
@@ -251,15 +227,12 @@ void uploaderSponsorStudent(const string &uploaderID)
     cout << "0. Back\n";
 
     int choice = readInt("Choice: ", true);
-
     if (choice == 0)
         return;
-
     if (choice == 1)
     {
         cout << "\n--- Students Seeking Sponsorship ---\n";
         bool found = false;
-
         for (const auto &[id, student] : students)
         {
             if (student.seekingSponsorship)
@@ -277,7 +250,6 @@ void uploaderSponsorStudent(const string &uploaderID)
                 cout << "========================================\n";
             }
         }
-
         if (!found)
         {
             cout << "No students are currently seeking sponsorship.\n";
@@ -325,7 +297,6 @@ void uploaderMenuLoop(const string &uploaderID)
             cout << "Logging out...\n";
             break;
         }
-
         if (ch == 1)
             uploaderAddScholarship(uploaderID);
         else if (ch == 2)
