@@ -13,7 +13,6 @@ using namespace std;
 void seedData()
 {
     uploaders["admin"] = Uploader("adminpw");
-
     Scholarship a(nextScholarshipID++, "Mahindra Excellence", "Mahindra Foundation", 50000.0, 8.5, 100000, "degree", "OPEN", "Tamil Nadu", "admin", "contact@mh.org", "Support for students which are underprivileged.", "2025-12-31");
     Scholarship b(nextScholarshipID++, "Arts Support", "Arts Council", 20000.0, 8.0, 100000, "school", "SC", "Delhi", "admin", "arts@support.org", "Grants for arts students.", "2025-11-30");
     Scholarship c(nextScholarshipID++, "Merit Grant", "Merit Foundation", 300000.0, 9.5, 120000, "Any", "General", "Jharkhand", "admin", "info@merit.org", "Merit-based scholarship.", "2025-10-15");
@@ -38,7 +37,6 @@ void seedData()
                                 40000, true);
     studentPasswords["priya"] = "priya123";
 }
-
 void displayWelcome()
 {
     cout << "=========================================\n";
@@ -46,39 +44,28 @@ void displayWelcome()
     cout << "   Connecting Students & Opportunities  \n";
     cout << "=========================================\n\n";
 }
-
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
+    ios::sync_with_stdio(false),cin.tie(nullptr);
     displayWelcome();
-
-    // Try to load existing data from CSV
-    cout << "Checking for existing data...\n";
+    cout << "Checking for existing data...\n";     // Try to load existing data from JSON
     loadAllData();
-
-    // If no data was loaded, seed with default data
-    if (uploaders.empty())
+    if (uploaders.empty())    // If no data was loaded, seed with default data
     {
         cout << "No existing data found. Loading default data...\n";
         seedData();
     }
-
     while (true)
     {
         cout << "\n========== Main Menu ==========\n";
         cout << "1. Uploader/Sponsor Portal\n";
         cout << "2. Student Portal\n";
-        cout << "3. Save all data to CSV\n";
+        cout << "3. Save all data \n";
         cout << "0. Exit\n";
         cout << "===============================\n";
-
         int ch = readInt("Choice: ", true);
-
         if (ch == 0)
             break;
-
         if (ch == 1)
         {
             cout << "\n--- Uploader/Sponsor Portal ---\n";
@@ -110,19 +97,13 @@ int main()
             cout << "Invalid choice.\n";
         }
     }
-
-    // Auto-save on exit
-    cout << "\nSaving data before exit...\n";
+    cout << "\nSaving data before exit...\n";    // Auto-save on exit
     saveAllData();
-
-    // Cleanup
-    cleanupBST(root);
+    cleanupBST(root);    // Cleanup
     cleanupUploaders();
     cleanupStudents();
-
     cout << "\nThank you for using ScholarMate!\n";
     cout << "Empowering education, one scholarship at a time.\n";
     cout << "Goodbye!\n";
-
     return 0;
 }
