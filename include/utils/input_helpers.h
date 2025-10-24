@@ -1,6 +1,5 @@
 #ifndef INPUT_HELPERS_H
 #define INPUT_HELPERS_H
-
 #include <string>
 using namespace std;
 
